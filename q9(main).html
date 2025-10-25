@@ -1,13 +1,24 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <title>Frames Example</title>
+  <title>Iframe Example</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+    }
+    iframe {
+      width: 50%;
+      height: 100vh;
+      border:inset;
+    }
+  </style>
 </head>
-<frameset cols="50%,50%">
-  <!-- Left frame -->
-  <frame src="q9(menu).html" name="menuFrame">
+<body>
+  <!-- Left iframe -->
+  <iframe src="q9(menu).html" name="menuFrame"></iframe>
 
-  <!-- Right frame -->
-  <frame src="q9(right).html" name="contentFrame">
-</frameset>
+  <!-- Right iframe -->
+  <iframe src="q9(right).html" name="contentFrame"></iframe>
+</body>
 </html>
-
