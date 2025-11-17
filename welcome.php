@@ -16,4 +16,7 @@ if (isset($_GET['user'])) {
 <p align="center"><a href="q20.php">Logout</a></p>
 </body>
 </html>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 85669d77e568fa3f2a0ea65a269e897ebf8353bc
