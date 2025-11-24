@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+</head>
+<body>
+
+<form onsubmit="return validateForm()">
+    <table border="1" cellpadding="10">
+
+        <tr>
+            <td>First Name</td>
+            <td>
+                <input type="text" id="fname">
+                <div id="fnameError" style="color:red;"></div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Last Name</td>
+            <td>
+                <input type="text" id="lname">
+                <div id="lnameError" style="color:red;"></div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Email</td>
+            <td>
+                <input type="text" id="email">
+                <div id="emailError" style="color:red;"></div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Mobile</td>
+            <td>
+                <input type="text" id="mobile">
+                <div id="mobileError" style="color:red;"></div>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" style="text-align:center;">
+                <button type="submit">Submit</button>
+            </td>
+        </tr>
+
+    </table>
+</form>
+
+<script>
+function validateForm() {
+    let isValid = true;
+
+    // First Name
+    let fname = document.getElementById("fname");
+    let fnameError = document.getElementById("fnameError");
+    if (fname.value.trim() === "") {
+        fnameError.textContent = "First name is required";
+        isValid = false;
+    } else {
+        fnameError.textContent = "";
+    }
+
+    // Last Name
+    let lname = document.getElementById("lname");
+    let lnameError = document.getElementById("lnameError");
+    if (lname.value.trim() === "") {
+        lnameError.textContent = "Last name is required";
+        isValid = false;
+    } else {
+        lnameError.textContent = "";
+    }
+
+    // Email
+    let email = document.getElementById("email");
+    let emailError = document.getElementById("emailError");
+    let emailPattern = /^[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.[a-zA-Z]+$/;
+
+    if (email.value.trim() === "") {
+        emailError.textContent = "Email is required";
+        isValid = false;
+    } else if (!emailPattern.test(email.value.trim())) {
+        emailError.textContent = "Invalid email format";
+        isValid = false;
+    } else {
+        emailError.textContent = "";
+    }
+
+    // Mobile
+    let mobile = document.getElementById("mobile");
+    let mobileError = document.getElementById("mobileError");
+    let mobilePattern = /^\d{10}$/;
+
+    if (mobile.value.trim() === "") {
+        mobileError.textContent = "Mobile number is required";
+        isValid = false;
+    } else if (!mobilePattern.test(mobile.value.trim())) {
+        mobileError.textContent = "Mobile must be 10 digits";
+        isValid = false;
+    } else {
+        mobileError.textContent = "";
+    }
+
+    return isValid;
+}
+</script>
+
+</body>
+</html>
